@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>    
+    <script type="text/javascript" src="http://cdn.robotwebtools.org/threejs/r61/three.min.js"></script>
+    <script type="text/javascript" src="http://cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+    <script type="text/javascript" src="http://cdn.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+    <script type="text/javascript" src="http://cdn.robotwebtools.org/ros3djs/current/ros3d.min.js"></script>
+    <script type="text/javascript" src="test2.js"></script>
+  </head>
+  <body>
+    <h1>Simple Browser Simulated UserNav</h1>
+    <div id="description">
+      <p>Run the following commands in the terminal then refresh.</p>
+      <ol>
+        <li><tt>roslaunch turtlebot_gazebo turtlebot_gazebo.launch</tt><sup>[1]</sup></li>
+        <li><tt>roslaunch rosbridge_server rosbridge_websocket.launch</tt></li>
+        <li><tt>rosrun tf2_web_republisher tf2_web_republisher</tt></li>
+        <li><tt>rosrun web_video_server web_video_server _port:=9999</b></tt></li>
+        <li><tt>rosrun depthcloud_encoder depthcloud_encoder_node _depthsource:=cloud _cloud:=/camera/depth/points</tt><sup>2</sup></li>
+      </ol>
+      <small><sup>[1]</sup>. Due to a cross-origin policies, you MUST serve this files at port 8080.</small><br/>
+      <small><sup>[2]</sup>. Requires newest depthcloud_encoder version, currently not available as deb package. </small>
+      <p>Control the through usual teleop keys.</p>
+      <table>
+        <tr><td>u</td><td>i</td><td>o</td></tr>
+        <tr><td>j</td><td>k</td><td>l</td></tr>
+        <tr><td>m</td><td>,</td><td>.</td></tr>
+      </table>
+      <ol>
+      <dl>
+          <dt>q/z</dt><dd>: increase/decrease max speeds by 10%</dd>
+          <dt>w/x</dt><dd>: increase/decrease linear speed by 10%</dd>
+          <dt>e/c</dt><dd>: increase/decrease angular speeds by 10%</dd>
+      </dl>
+      <small><sup>[1]</sup>. Due to a cross-origin policies, you MUST serve this files at port 8080.</small><br/>
+      <small><sup>[2]</sup>. Requires newest depthcloud_encoder version, currently not available as deb package. </small>
+    </div>
+    <div id="viewer"></div>
+  </body>
+</html>
